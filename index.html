@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Recicla Solar Coca-Cola</title>
+    <link rel="stylesheet" href="css/index.css">
+  </head>
+  <body>
+    <div class="game-intro" id="video">
+      <video autoplay muted playsinline controls loop width="1280" height="720" id="vid">
+        <source src="intro.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
+      </video>
+    </div>
+
+    <div class="game-tutorial" id="game-tutorial" hidden>
+      <img src="img/bg_tutorial.png" alt="" width="1280" height="720">
+    </div>
+
+    <div class="game-play" id="game-play" width="1280" height="720" hidden>
+      <div class="game-board">
+        <div class="game-life" id="life">
+          <img src="img/life3.png" alt="" width="195" height="195" id="life3">
+          <img src="img/life2.png" alt="" width="195" height="195" id="life2" hidden>
+          <img src="img/life1.png" alt="" width="195" height="195" id="life1" hidden>
+          <img src="img/life0.png" alt="" width="195" height="195" id="life0" hidden>
+        </div>
+        <div class="game-tile" id="tile-1"></div>
+        <div class="game-tile" id="tile-2"></div>
+        <div class="game-tile" id="tile-3"></div>
+        <div class="game-tile" id="tile-4"></div>
+        <div class="game-tile" id="tile-5"></div>
+        <div class="game-tile" id="tile-6"></div>
+        <div class="game-tile" id="tile-7"></div>
+      </div>
+      <div class="game-stack"></div>
+      <!-- <img src="img/bg_jogo.png" alt="" width="1280" height="720"> -->
+    </div>
+
+    <div class="game-game-over" id="game-game-over" hidden>
+      <img src="img/bg_game_over.png" width="1280" height="720" alt="">
+    </div>
+    <script src="js/index.js"></script>
+
+    <script>
+
+    </script>
+  </body>
+</html>

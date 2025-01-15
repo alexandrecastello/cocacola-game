@@ -1,0 +1,86 @@
+.game-play {
+  width: 1280px;
+  height: 720px;
+  background-image: url('../img/bg_jogo.png');
+  background-size: cover;
+}
+
+.game-board {
+  margin: 10px 0 0 65px;
+  width: 54%;
+  height: 96%;
+  background-color: rgba(255, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-stack{
+    width: 16%;
+    height: 100%;
+    background-color: rgba(0, 0, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 12%;
+}
+
+#life {
+  position: sticky;
+}
+#life.glowing {
+  box-shadow: 0 0 10px 5px rgba(255, 0, 0, 0.5);
+}
+
+#life.hidden {
+  display: none;
+}
+
+.game-tile {
+  position: absolute;
+  width: 100px;
+  height: 118px;
+  background-color: rgba(0, 255, 0, 0.5);
+}
+
+#tile-1 {
+  top: 23px;
+  left: 637px;
+}
+
+#tile-2 {
+  top: 295px;
+  left: 637px;
+}
+
+#tile-3 {
+  top: 568px;
+  left: 637px;
+}
+
+#tile-4 {
+  top: 568px;
+  left: 356px;
+}
+
+#tile-5 {
+  top: 568px;
+  left: 79px;
+}
+
+#tile-6 {
+  top: 295px;
+  left: 79px;
+}
+
+#tile-7 {
+  top: 23px;
+  left: 79px;
+}
+
+html, body {
+  width: 100%;
+  height: 100vh;
+  background-color: gray;
+  margin: 0;
+}
