@@ -1,0 +1,125 @@
+.game-play {
+  width: 1280px;
+  height: 720px;
+  background-image: url('../img/bg_jogo.png');
+  background-size: cover;
+}
+
+.game-board {
+  margin: 10px 0 0 65px;
+  width: 54%;
+  height: 96%;
+  /* background-color: rgba(255, 0, 0, 0.5); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-stack{
+    width: 16%;
+    height: 85%;
+    /* background-color: rgba(0, 0, 255, 0.5); */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 150px;
+    align-self: center;
+}
+
+.game-stack img, .game-tile img {
+  width: 100px;
+  height: 118px;
+  margin-bottom: 10px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.game-stack img:hover, .game-tile img:hover {
+  box-shadow: 0 0 15px 5px rgba(255, 255, 0, 0.7);
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px 2px rgba(0, 255, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px 10px rgba(0, 255, 0, 1);
+  }
+  100% {
+    box-shadow: 0 0 5px 2px rgba(0, 255, 0, 0.5);
+  }
+}
+
+.glow {
+  animation: glow 1s ease-in-out;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  animation: rotate 0.5s ease-in-out;
+}
+
+#life {
+  position: sticky;
+}
+
+#life.hidden {
+  display: none;
+}
+
+.game-tile {
+  position: absolute;
+  width: 100px;
+  height: 118px;
+  /* background-color: rgba(0, 255, 0, 0.5); */
+}
+
+#tile-1 {
+  top: 23px;
+  left: 637px;
+}
+
+#tile-2 {
+  top: 295px;
+  left: 637px;
+}
+
+#tile-3 {
+  top: 568px;
+  left: 637px;
+}
+
+#tile-4 {
+  top: 568px;
+  left: 356px;
+}
+
+#tile-5 {
+  top: 568px;
+  left: 79px;
+}
+
+#tile-6 {
+  top: 295px;
+  left: 79px;
+}
+
+#tile-7 {
+  top: 23px;
+  left: 79px;
+}
+
+html, body {
+  width: 100%;
+  height: 100vh;
+  background-color: gray;
+  margin: 0;
+}
