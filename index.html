@@ -25,33 +25,32 @@
           <img src="img/life1.png" alt="" width="195" height="195" id="life1" hidden>
           <img src="img/life0.png" alt="" width="195" height="195" id="life0" hidden>
         </div>
-        <div class="game-tile" id="tile-1"></div>
-        <div class="game-tile" id="tile-2"></div>
-        <div class="game-tile" id="tile-3"></div>
-        <div class="game-tile" id="tile-4"></div>
-        <div class="game-tile" id="tile-5"></div>
-        <div class="game-tile" id="tile-6"></div>
-        <div class="game-tile" id="tile-7"></div>
+        <div class="game-tile" id="tile-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="game-tile" id="tile-2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="game-tile" id="tile-3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="game-tile" id="tile-4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="game-tile" id="tile-5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="game-tile" id="tile-6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="game-tile" id="tile-7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
       </div>
       <div class="game-stack">
-        <img src="img/card_agregadores.png">
-        <img src="img/card_coleta.png">
-        <img src="img/card_consumo.png">
-        <img src="img/card_cooperativa.png">
-        <!-- <img src="img/card_fabrica.png"> -->
-        <img src="img/card_industria.png">
-        <img src="img/card_producao.png">
-        <img src="img/card_venda.png">
+        <img src="img/card_agregadores.png" id="card_agregadores" draggable="true" ondragstart="drag(event)">
+        <img src="img/card_coleta.png" id="card_coleta" draggable="true" ondragstart="drag(event)">
+        <img src="img/card_consumo.png" id="card_consumo" draggable="true" ondragstart="drag(event)">
+        <img src="img/card_cooperativa.png" id="card_cooperativa" draggable="true" ondragstart="drag(event)">
+        <img src="img/card_industria.png" id="card_industria" draggable="true" ondragstart="drag(event)">
+        <img src="img/card_producao.png" id="card_producao" draggable="true" ondragstart="drag(event)">
+        <img src="img/card_venda.png" id="card_venda" draggable="true" ondragstart="drag(event)">
       </div>
     </div>
 
     <div class="game-game-over" id="game-game-over" hidden>
       <img src="img/bg_game_over.png" width="1280" height="720" alt="">
     </div>
+
+    <div class="game-final" id="game-final" hidden>
+      <img src="img/bg_final.png" width="1280" height="720" alt="">
+    </div>
     <script src="js/index.js"></script>
-
-    <script>
-
-    </script>
   </body>
 </html>
