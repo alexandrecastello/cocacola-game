@@ -37,12 +37,33 @@ function allowDrop(event) {
 
 function drag(event) {
   event.dataTransfer.setData("text", event.target.id);
+  const draggedElement = event.target;
+
+  draggedElement.classList.add('dragging'); // Add dragging class
+
+  // Update position to follow mouse
+  function onMouseMove(e) {
+    draggedElement.style.left = `${e.pageX - draggedElement.offsetWidth / 2}px`;
+    draggedElement.style.top = `${e.pageY - draggedElement.offsetHeight / 2}px`;
+  }
+
+  document.addEventListener('mousemove', onMouseMove);
+
+  // Remove mousemove listener when drag ends
+  draggedElement.addEventListener('dragend', () => {
+    draggedElement.classList.remove('dragging');
+    draggedElement.style.left = '';
+    draggedElement.style.top = '';
+    document.removeEventListener('mousemove', onMouseMove);
+  });
 }
 
 function drop(event) {
   event.preventDefault();
   const data = event.dataTransfer.getData("text");
   const draggedElement = document.getElementById(data);
+  draggedElement.classList.remove('card-dragging'); // Remove grow animation
+
   const targetTile = event.target;
   const correctTiles = {
     "card_venda": "tile-1",
@@ -56,10 +77,10 @@ function drop(event) {
 
   if (correctTiles[draggedElement.id] === targetTile.id) {
     targetTile.appendChild(draggedElement);
-    targetTile.classList.add('glow');
+    draggedElement.classList.add('card-placed'); // Add shrink animation
     setTimeout(() => {
-      targetTile.classList.remove('glow');
-    }, 1000);
+      draggedElement.classList.remove('card-placed'); // Remove shrink animation after it completes
+    }, 300);
 
     if (checkWinCondition(correctTiles)) {
       gamePlay.style.display = 'none';
