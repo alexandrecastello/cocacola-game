@@ -45,13 +45,13 @@ function drop(event) {
   const draggedElement = document.getElementById(data);
   const targetTile = event.target;
   const correctTiles = {
-    "card_agregadores": "tile-5",
-    "card_coleta": "tile-3",
+    "card_venda": "tile-1",
     "card_consumo": "tile-2",
+    "card_coleta": "tile-3",
     "card_cooperativa": "tile-4",
+    "card_agregadores": "tile-5",
     "card_industria": "tile-6",
-    "card_producao": "tile-7",
-    "card_venda": "tile-1"
+    "card_producao": "tile-7"
   };
 
   if (correctTiles[draggedElement.id] === targetTile.id) {

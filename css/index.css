@@ -1,12 +1,12 @@
 .game-play {
-  width: 1280px;
-  height: 720px;
+  width: 1920px;
+  height: 1080px;
   background-image: url('../img/bg_jogo.png');
   background-size: cover;
 }
 
 .game-board {
-  margin: 10px 0 0 65px;
+  margin: 14px 0 0 98px;
   width: 54%;
   height: 96%;
   /* background-color: rgba(255, 0, 0, 0.5); */
@@ -16,20 +16,21 @@
 }
 
 .game-stack{
-    width: 16%;
-    height: 85%;
-    /* background-color: rgba(0, 0, 255, 0.5); */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 150px;
-    align-self: center;
+  width: 16%;
+  height: 85%;
+  /* background-color: rgba(0, 0, 255, 0.5); */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+  right: 235px;
+  position: absolute;
 }
 
 .game-stack img, .game-tile img {
-  width: 100px;
-  height: 118px;
+  width: 150px;
+  height: 173px;
   margin-bottom: 10px;
   transition: box-shadow 0.3s ease-in-out;
 }
@@ -77,44 +78,44 @@
 
 .game-tile {
   position: absolute;
-  width: 100px;
-  height: 118px;
+  width: 150px;
+  height: 173px;
   /* background-color: rgba(0, 255, 0, 0.5); */
 }
 
 #tile-1 {
-  top: 23px;
-  left: 637px;
+  top: 37px;
+  left: 950px;
 }
 
 #tile-2 {
-  top: 295px;
-  left: 637px;
+  top: 442px;
+  left: 956px;
 }
 
 #tile-3 {
-  top: 568px;
-  left: 637px;
+  top: 855px;
+  left: 953px;
 }
 
 #tile-4 {
-  top: 568px;
-  left: 356px;
+  top: 855px;
+  left: 536px;
 }
 
 #tile-5 {
-  top: 568px;
-  left: 79px;
+  top: 855px;
+  left: 120px;
 }
 
 #tile-6 {
-  top: 295px;
-  left: 79px;
+  top: 442px;
+  left: 120px;
 }
 
 #tile-7 {
-  top: 23px;
-  left: 79px;
+  top: 37px;
+  left: 120px;
 }
 
 html, body {
