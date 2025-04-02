@@ -11,25 +11,42 @@ var gameFinal = document.getElementById('game-final');
 
 video.addEventListener('click', () => {
   var videoDiv = document.getElementById('video');
-  videoDiv.setAttribute('hidden', '');
   gameTutorial.removeAttribute('hidden');
+  videoDiv.classList.add('fade-out');
+  setTimeout(() => {
+    videoDiv.setAttribute('hidden', '');
+    videoDiv.classList.remove('fade-out');
+  }, 500);
 });
 
 gameTutorial.addEventListener('click', () => {
-  gameTutorial.setAttribute('hidden', '')
-  gamePlay.removeAttribute('hidden')
-  gamePlay.style.display = 'flex';
-})
+  gamePlay.removeAttribute('hidden');
+  gameTutorial.classList.add('fade-out');
+  setTimeout(() => {
+    gameTutorial.setAttribute('hidden', '');
+    gameTutorial.classList.remove('fade-out');
+  }, 500);
+});
 
 gameOver.addEventListener('click', () => {
-  location.reload();
-})
+  if (!gameOver.hasAttribute('hidden')) {
+    gameOver.classList.add('fade-out');
+    setTimeout(() => {
+      gameOver.setAttribute('hidden', '');
+      location.reload();
+    }, 500);
+  }
+});
 
 gameFinal.addEventListener('click', () => {
-  location.reload();
-})
-
-// Drag and drop
+  if (!gameFinal.hasAttribute('hidden')) {
+    gameFinal.classList.add('fade-out');
+    setTimeout(() => {
+      gameFinal.setAttribute('hidden', '');
+      location.reload();
+    }, 500);
+  }
+});
 
 function allowDrop(event) {
   event.preventDefault();
@@ -37,54 +54,34 @@ function allowDrop(event) {
 
 function drag(event) {
   event.dataTransfer.setData("text", event.target.id);
-  const draggedElement = event.target;
-
-  draggedElement.classList.add('dragging'); // Add dragging class
-
-  // Update position to follow mouse
-  function onMouseMove(e) {
-    draggedElement.style.left = `${e.pageX - draggedElement.offsetWidth / 2}px`;
-    draggedElement.style.top = `${e.pageY - draggedElement.offsetHeight / 2}px`;
-  }
-
-  document.addEventListener('mousemove', onMouseMove);
-
-  // Remove mousemove listener when drag ends
-  draggedElement.addEventListener('dragend', () => {
-    draggedElement.classList.remove('dragging');
-    draggedElement.style.left = '';
-    draggedElement.style.top = '';
-    document.removeEventListener('mousemove', onMouseMove);
-  });
 }
 
 function drop(event) {
   event.preventDefault();
   const data = event.dataTransfer.getData("text");
   const draggedElement = document.getElementById(data);
-  draggedElement.classList.remove('card-dragging'); // Remove grow animation
-
+  console.log(draggedElement.id);
+  draggedElement.style.top = '';
+  draggedElement.style.left = '';
+  draggedElement.classList.remove('card-dragging');
   const targetTile = event.target;
   const correctTiles = {
-    "card_venda": "tile-1",
-    "card_consumo": "tile-2",
-    "card_coleta": "tile-3",
-    "card_cooperativa": "tile-4",
-    "card_agregadores": "tile-5",
-    "card_industria": "tile-6",
-    "card_producao": "tile-7"
+    "card-7": "tile-1",
+    "card-3": "tile-2",
+    "card-2": "tile-3",
+    "card-4": "tile-4",
+    "card-1": "tile-5",
+    "card-5": "tile-6",
+    "card-6": "tile-7"
   };
-
   if (correctTiles[draggedElement.id] === targetTile.id) {
     targetTile.appendChild(draggedElement);
-    draggedElement.classList.add('card-placed'); // Add shrink animation
-    setTimeout(() => {
-      draggedElement.classList.remove('card-placed'); // Remove shrink animation after it completes
-    }, 300);
-
     if (checkWinCondition(correctTiles)) {
-      gamePlay.style.display = 'none';
-      gameFinal.removeAttribute('hidden');
+      gamePlay.classList.add('fade-out');
+      setTimeout(() => {
+        gamePlay.setAttribute('hidden', '');
+        gameFinal.removeAttribute('hidden');
+      }, 500);
     }
   } else {
     damage();
@@ -134,8 +131,11 @@ function damage() {
         life1.setAttribute('hidden', '');
         life0.removeAttribute('hidden');
         setTimeout(() => {
-          gameOver.removeAttribute('hidden');
-          gamePlay.style.display = 'none';
+          gamePlay.classList.add('fade-out');
+          setTimeout(() => {
+            gamePlay.setAttribute('hidden', '');
+            gameOver.removeAttribute('hidden');
+          }, 1000);
         }, 500);
       }, 500);
     }, 500);

@@ -1,60 +1,81 @@
 .game-play {
   width: 1920px;
   height: 1080px;
+  padding: 0px;
   background-image: url('../img/bg_jogo.png');
   background-size: cover;
+  z-index: 3;
 }
 
 .game-board {
   margin: 14px 0 0 98px;
   width: 54%;
   height: 96%;
-  /* background-color: rgba(255, 0, 0, 0.5); */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.game-stack{
-  width: 16%;
-  height: 85%;
-  /* background-color: rgba(0, 0, 255, 0.5); */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  align-self: center;
-  right: 235px;
-  position: absolute;
-}
-
-.game-stack img, .game-tile img {
+.card, .game-tile img {
   width: 150px;
   height: 173px;
   margin-bottom: 10px;
   transition: box-shadow 0.3s ease-in-out;
 }
 
-.game-stack img:hover, .game-tile img:hover {
-  box-shadow: 0 0 15px 5px rgba(255, 255, 0, 0.7);
+.card:hover, .game-stack img:active {
+  transform: scale(1.2);
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Removed glow animation and related styles */
-/* @keyframes glow {
-  0% {
-    box-shadow: 0 0 5px 2px rgba(0, 255, 0, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 20px 10px rgba(0, 255, 0, 1);
-  }
-  100% {
-    box-shadow: 0 0 5px 2px rgba(0, 255, 0, 0.5);
-  }
+.game-stack #card-1 {
+  position: absolute;
+  top: 50px;
+  left: 1450px;
+  z-index: 7;
 }
 
-.glow {
-  animation: glow 1s ease-in-out;
-} */
+.game-stack #card-2 {
+  position: absolute;
+  top: 175px;
+  left: 1450px;
+  z-index: 6;
+}
+
+.game-stack #card-3 {
+  position: absolute;
+  top: 300px;
+  left: 1450px;
+  z-index: 5;
+}
+
+.game-stack #card-4 {
+  position: absolute;
+  top: 425px;
+  left: 1450px;
+  z-index: 4;
+}
+
+.game-stack #card-5 {
+  position: absolute;
+  top: 550px;
+  left: 1450px;
+  z-index: 3;
+}
+
+.game-stack #card-6 {
+  position: absolute;
+  top: 675px;
+  left: 1450px;
+  z-index: 2;
+}
+
+.game-stack #card-7 {
+  position: absolute;
+  top: 800px;
+  left: 1450px;
+  z-index: 1;
+}
 
 @keyframes rotate {
   0% {
@@ -78,21 +99,21 @@
   }
 }
 
-@keyframes shrink {
+@keyframes fade-out {
   0% {
-    transform: scale(1.2);
+    opacity: 1;
   }
   100% {
-    transform: scale(1);
+    opacity: 0;
   }
+}
+
+.fade-out {
+  animation: fade-out 0.5s forwards;
 }
 
 .card-dragging {
   animation: grow 0.3s forwards;
-}
-
-.card-placed {
-  animation: shrink 0.3s forwards;
 }
 
 #life {
@@ -107,7 +128,6 @@
   position: absolute;
   width: 150px;
   height: 173px;
-  /* background-color: rgba(0, 255, 0, 0.5); */
 }
 
 #tile-1 {
@@ -146,14 +166,33 @@
 }
 
 html, body {
-  width: 100%;
-  height: 100vh;
-  background-color: gray;
+  width: 1920px;
+  height: 1080px;
+  max-height: 1080px;
+  background-color: white;
   margin: 0;
 }
 
-.dragging {
+.game-intro, .game-tutorial, .game-play, .game-game-over, .game-final {
   position: absolute;
-  pointer-events: none;
-  z-index: 1000;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-intro {
+  z-index: 5;
+}
+
+.game-tutorial {
+  z-index: 4;
+}
+
+.game-game-over {
+  z-index: 2;
+}
+
+.game-final {
+  z-index: 1;
 }
