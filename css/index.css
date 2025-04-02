@@ -114,6 +114,20 @@
 
 .card-dragging {
   animation: grow 0.3s forwards;
+  opacity: 0; /* Make the card disappear */
+}
+
+.card-dragging::after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 173px;
+  background-color: rgba(0, 0, 0, 0.2); /* Shadow effect */
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.2); /* Match the grow animation */
+  z-index: 1000;
+  pointer-events: none;
 }
 
 #life {

@@ -54,6 +54,10 @@ function allowDrop(event) {
 
 function drag(event) {
   event.dataTransfer.setData("text", event.target.id);
+  const draggedElement = event.target;
+
+  // Add the card-dragging class to apply styles
+  draggedElement.classList.add('card-dragging');
 }
 
 function drop(event) {
