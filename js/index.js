@@ -64,10 +64,10 @@ function drop(event) {
   event.preventDefault();
   const data = event.dataTransfer.getData("text");
   const draggedElement = document.getElementById(data);
-  console.log(draggedElement.id);
   draggedElement.style.top = '';
   draggedElement.style.left = '';
   draggedElement.classList.remove('card-dragging');
+
   const targetTile = event.target;
   const correctTiles = {
     "card-7": "tile-1",
@@ -78,8 +78,10 @@ function drop(event) {
     "card-5": "tile-6",
     "card-6": "tile-7"
   };
+
   if (correctTiles[draggedElement.id] === targetTile.id) {
     targetTile.appendChild(draggedElement);
+
     if (checkWinCondition(correctTiles)) {
       gamePlay.classList.add('fade-out');
       setTimeout(() => {
@@ -88,6 +90,14 @@ function drop(event) {
       }, 500);
     }
   } else {
+    // Reset the card to its original position
+    const originalPosition = document.querySelector(`.game-stack #${draggedElement.id}`);
+    if (originalPosition) {
+      draggedElement.style.position = 'absolute';
+      draggedElement.style.top = originalPosition.style.top;
+      draggedElement.style.left = originalPosition.style.left;
+    }
+    draggedElement.style.opacity = '1'; // Make the card reappear
     damage();
   }
 }
